@@ -10,6 +10,8 @@ const Todo = ({ todo }) => (
 )
 const styles = StyleSheet.create({
   todoContainer: {
+    marginTop: 10,
+    marginBottom: 10,
     marginLeft: 20,
     marginRight: 20,
     backgroundColor: '#ffffff',

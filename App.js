@@ -20,7 +20,7 @@ export default function App() {
       <ScrollView style={styles.content} keyboardShouldPersistTaps='always'>
         <Heading />
         <Input />
-        <TodoList />
+        <TodoList todos={todos}/>
       </ScrollView>
       <StatusBar style="auto" />
     </View>
