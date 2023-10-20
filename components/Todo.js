@@ -27,7 +27,8 @@ const styles = StyleSheet.create({
     shadowColor: '#000000',
     shadowOffset: { width: 2, height: 2 },
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    padding: 10,
   },
   todoText: {
     fontSize: 17

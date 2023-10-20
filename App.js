@@ -20,15 +20,22 @@ export default function App() {
     setInputValue(message);
   }
   const submitTodoHandler = () => {
+    if (inputValue.match(/^\s*$/)) {
+      alert("Empty note.");
+      return;
+    }
     setTodos([{text: inputValue}, ...todos]);
   }
 
   return (
     <View style={styles.container}>
-      <ScrollView style={styles.content} keyboardShouldPersistTaps='always'>
-        <Heading />
-        <Input onInputValue={ inputValueHandler } />
-        <SubmitTodoButton submitTodo={ submitTodoHandler } />
+      <Heading />
+      <Input onInputValue={ inputValueHandler } />
+      <SubmitTodoButton submitTodo={ submitTodoHandler } />
+
+      <ScrollView 
+        style={styles.content} 
+        keyboardShouldPersistTaps='always'>
         <TodoList todos={ todos }/>
       </ScrollView>
       <StatusBar style="auto" />
@@ -39,9 +46,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'space-between',
     backgroundColor: '#fff',
     // alignItems: 'center',
-    justifyContent: 'center',
   },
   content: {
     flex: 1,

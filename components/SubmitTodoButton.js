@@ -2,7 +2,7 @@ import { StyleSheet, View, TouchableHighlight, Text } from "react-native"
 
 const SubmitTodoButton = props => {
   return (
-    <View>
+    <View style={styles.buttonContainer}>
       <TouchableHighlight
         underlayColor='#efefef'
         style={ styles.button }
