@@ -4,6 +4,7 @@ import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import Heading from './components/Heading';
 import Input from './components/Input';
 import TodoList from './components/TodoList';
+import SubmitTodoButton from './components/SubmitTodoButton';
 
 
 export default function App() {
@@ -15,12 +16,20 @@ export default function App() {
   const [type, setType] = useState("");
   const [inputValue, setInputValue] = useState("");
 
+  const inputValueHandler = (message) => {
+    setInputValue(message);
+  }
+  const submitTodoHandler = () => {
+    setTodos([{text: inputValue}, ...todos]);
+  }
+
   return (
     <View style={styles.container}>
       <ScrollView style={styles.content} keyboardShouldPersistTaps='always'>
         <Heading />
-        <Input />
-        <TodoList todos={todos}/>
+        <Input onInputValue={ inputValueHandler } />
+        <SubmitTodoButton submitTodo={ submitTodoHandler } />
+        <TodoList todos={ todos }/>
       </ScrollView>
       <StatusBar style="auto" />
     </View>
