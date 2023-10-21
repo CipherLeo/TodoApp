@@ -1,4 +1,6 @@
-import { StyleSheet, View, TouchableHighlight, Text } from "react-native"
+/* eslint-disable react/prop-types */
+/* eslint-disable react/react-in-jsx-scope */
+import { StyleSheet, View, TouchableHighlight, Text } from 'react-native'
 
 const SubmitTodoButton = props => {
   return (
@@ -35,7 +37,7 @@ const styles = StyleSheet.create({
   submit: {
     color: '#666666',
     fontWeight: '600'
-  },
+  }
 })
 
 export default SubmitTodoButton

@@ -1,11 +1,23 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
+import TodoButton from './TodoButton'
 
-const Todo = ({ todo }) => (
+const Todo = props => (
   <View style={ styles.todoContainer }>
     <Text style={styles.todoText}>
-      { todo.text }
+      { props.todo.text }
     </Text>
+    <View style={styles.buttons}>
+      <TodoButton
+        name='Done'
+        isDone={props.todo.isDone}
+        onPress={() => {}} ></TodoButton>
+      <TodoButton
+        name='Delete'
+        isDone={props.todo.isDone}
+        onPress={() => props.deleteTodo(props.todo.id)} ></TodoButton>
+    </View>
   </View>
 )
 const styles = StyleSheet.create({
@@ -28,10 +40,16 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 2, height: 2 },
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 10,
+    padding: 10
   },
   todoText: {
     fontSize: 17
+  },
+  buttons: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center'
   }
 })
 export default Todo

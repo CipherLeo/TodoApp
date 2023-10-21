@@ -1,12 +1,15 @@
-import { View } from "react-native";
-import Todo from "./Todo";
+/* eslint-disable react/prop-types */
+/* eslint-disable react/react-in-jsx-scope */
+import { View } from 'react-native'
+import Todo from './Todo'
 
-const TodoList = ({ todos }) => {
-  todos = todos.map((todo, index) => {
+const TodoList = props => {
+  const todos = props.todos.map((todo, index) => {
     return (
-      <Todo 
-        key={index}
-        todo={todo} />
+      <Todo
+        key={ index }
+        todo={ todo }
+        deleteTodo={ props.deleteTodo } />
     )
   })
 
