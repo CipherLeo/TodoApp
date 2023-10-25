@@ -1,11 +1,11 @@
-/* eslint-disable react/react-in-jsx-scope */
+import React, { useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { useState } from 'react'
 import { ScrollView, StyleSheet, View } from 'react-native'
 import Heading from './components/Heading'
 import Input from './components/Input'
 import TodoList from './components/TodoList'
 import SubmitTodoButton from './components/SubmitTodoButton'
+import TabBar from './components/TabBar'
 
 export default function App () {
   const getNextAvailableId = () => {
@@ -19,7 +19,7 @@ export default function App () {
     { id: 2, text: 'Learn about React Hooks', isDone: false },
     { id: 3, text: 'Build todo app', isDone: false }
   ])
-  // const [type, setType] = useState('')
+  const [type, setType] = useState('All')
   const [inputValue, setInputValue] = useState('')
 
   const inputValueHandler = (message) => {
@@ -46,9 +46,12 @@ export default function App () {
         style={styles.content}
         keyboardShouldPersistTaps='always'>
         <TodoList
+          type={ type }
           todos={ todos }
           deleteTodo={ deleteTodoHandler } />
       </ScrollView>
+
+      <TabBar type={ type } setType={ setType } />
       <StatusBar style="auto" />
     </View>
   )

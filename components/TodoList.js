@@ -1,23 +1,37 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/react-in-jsx-scope */
+import React from 'react'
 import { View } from 'react-native'
+import PropTypes from 'prop-types'
 import Todo from './Todo'
 
-const TodoList = props => {
-  const todos = props.todos.map((todo, index) => {
+const TodoList = ({ todos, deleteTodo, type }) => {
+  let filteredTodos
+  if (type === 'All') {
+    filteredTodos = todos
+  } else if (type === 'Complete') {
+    filteredTodos = todos.filter(t => t.isDone)
+  } else {
+    filteredTodos = todos.filter(t => !t.isDone)
+  }
+  const todoItems = filteredTodos.map((todo, index) => {
     return (
       <Todo
         key={ index }
         todo={ todo }
-        deleteTodo={ props.deleteTodo } />
+        deleteTodo={ deleteTodo } />
     )
   })
 
   return (
     <View>
-      { todos }
+      { todoItems }
     </View>
   )
+}
+
+TodoList.propTypes = {
+  todos: PropTypes.array,
+  deleteTodo: PropTypes.func,
+  type: PropTypes.string
 }
 
 export default TodoList
