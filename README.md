@@ -4,5 +4,6 @@
 ## Notes
 - This is a work in progress.
 ## Todos
-- [ ] Assign respective edit/delete button per `todo` component.
-- [ ] Add filter for `done` and `active` `todo` components.
+- [x] Assign respective edit/delete button per `todo` component.
+- [x] Add filter for `done` and `active` `todo` components.
+- [ ] Add `Done` function to every todo items.
