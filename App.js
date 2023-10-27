@@ -7,7 +7,7 @@ import TodoList from './components/TodoList'
 import SubmitTodoButton from './components/SubmitTodoButton'
 import TabBar from './components/TabBar'
 
-export default function App() {
+export default function App () {
   const getNextAvailableId = () => {
     const id = nextAvailableId
     setNextAvailableId(nextAvailableId + 1)

@@ -1,14 +1,14 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/react-in-jsx-scope */
+import React from 'react'
 import { StyleSheet, View, TouchableHighlight, Text } from 'react-native'
+import PropTypes from 'prop-types'
 
-const SubmitTodoButton = props => {
+const SubmitTodoButton = ({ submitTodo }) => {
   return (
     <View style={styles.buttonContainer}>
       <TouchableHighlight
         underlayColor='#efefef'
         style={ styles.button }
-        onPress={ props.submitTodo } >
+        onPress={ submitTodo } >
         <Text style={ styles.submit }>
           Submit
         </Text>
@@ -39,5 +39,9 @@ const styles = StyleSheet.create({
     fontWeight: '600'
   }
 })
+
+SubmitTodoButton.propTypes = {
+  submitTodo: PropTypes.func
+}
 
 export default SubmitTodoButton

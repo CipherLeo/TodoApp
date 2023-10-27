@@ -32,7 +32,8 @@ const TodoList = ({ todos, deleteTodo, completeTodo, type }) => {
 TodoList.propTypes = {
   todos: PropTypes.array,
   deleteTodo: PropTypes.func,
-  type: PropTypes.string
+  type: PropTypes.string,
+  completeTodo: PropTypes.func
 }
 
 export default TodoList

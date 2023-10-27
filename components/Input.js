@@ -1,10 +1,10 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/react-in-jsx-scope */
+import React from 'react'
 import { StyleSheet, TextInput, View } from 'react-native'
+import PropTypes from 'prop-types'
 
-const Input = props => {
+const Input = ({ onInputValue }) => {
   const messageChangeHandler = (message) => {
-    props.onInputValue(message)
+    onInputValue(message)
   }
   return (
     <View style={styles.inputContainer}>
@@ -34,5 +34,9 @@ const styles = StyleSheet.create({
     paddingRight: 10
   }
 })
+
+Input.propTypes = {
+  onInputValue: PropTypes.func
+}
 
 export default Input

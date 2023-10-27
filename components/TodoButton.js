@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Text, TouchableHighlight, StyleSheet } from 'react-native'
 
 const TodoButton = ({ onPress, isDone, name }) => (
@@ -37,4 +38,11 @@ const styles = StyleSheet.create({
     color: 'rgba(175, 47, 47, 1)'
   }
 })
+
+TodoButton.propTypes = {
+  onPress: PropTypes.func,
+  isDone: PropTypes.bool,
+  name: PropTypes.string
+}
+
 export default TodoButton
