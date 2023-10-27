@@ -7,7 +7,7 @@ import TodoList from './components/TodoList'
 import SubmitTodoButton from './components/SubmitTodoButton'
 import TabBar from './components/TabBar'
 
-export default function App () {
+export default function App() {
   const getNextAvailableId = () => {
     const id = nextAvailableId
     setNextAvailableId(nextAvailableId + 1)
@@ -32,6 +32,14 @@ export default function App () {
     }
     setTodos([{ id: getNextAvailableId(), text: inputValue, isDone: false }, ...todos])
   }
+  const completeTodoHandler = (id) => {
+    setTodos(todos.map(todo => {
+      if (todo.id === id) {
+        todo.isDone = true
+      }
+      return todo
+    }))
+  }
   const deleteTodoHandler = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id))
   }
@@ -39,19 +47,20 @@ export default function App () {
   return (
     <View style={styles.container}>
       <Heading />
-      <Input onInputValue={ inputValueHandler } />
-      <SubmitTodoButton submitTodo={ submitTodoHandler } />
+      <Input onInputValue={inputValueHandler} />
+      <SubmitTodoButton submitTodo={submitTodoHandler} />
 
       <ScrollView
         style={styles.content}
         keyboardShouldPersistTaps='always'>
         <TodoList
-          type={ type }
-          todos={ todos }
-          deleteTodo={ deleteTodoHandler } />
+          type={type}
+          todos={todos}
+          completeTodo={completeTodoHandler}
+          deleteTodo={deleteTodoHandler} />
       </ScrollView>
 
-      <TabBar type={ type } setType={ setType } />
+      <TabBar type={type} setType={setType} />
       <StatusBar style="auto" />
     </View>
   )

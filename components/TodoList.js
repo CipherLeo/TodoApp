@@ -3,7 +3,7 @@ import { View } from 'react-native'
 import PropTypes from 'prop-types'
 import Todo from './Todo'
 
-const TodoList = ({ todos, deleteTodo, type }) => {
+const TodoList = ({ todos, deleteTodo, completeTodo, type }) => {
   let filteredTodos
   if (type === 'All') {
     filteredTodos = todos
@@ -15,15 +15,16 @@ const TodoList = ({ todos, deleteTodo, type }) => {
   const todoItems = filteredTodos.map((todo, index) => {
     return (
       <Todo
-        key={ index }
-        todo={ todo }
-        deleteTodo={ deleteTodo } />
+        key={index}
+        todo={todo}
+        completeTodo={completeTodo}
+        deleteTodo={deleteTodo} />
     )
   })
 
   return (
     <View>
-      { todoItems }
+      {todoItems}
     </View>
   )
 }

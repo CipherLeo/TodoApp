@@ -1,19 +1,18 @@
-/* eslint-disable react/prop-types */
 import React from 'react'
 import { Text, TouchableHighlight, StyleSheet } from 'react-native'
 
-const TodoButton = props => (
+const TodoButton = ({ onPress, isDone, name }) => (
   <TouchableHighlight
-    onPress={props.onPress}
+    onPress={onPress}
     underlayColor='#efefef'
     style={styles.button}>
     <Text style={[
       styles.text,
-      props.isDone ? styles.isDone : null,
-      props.name === 'Delete' ? styles.deleteButton : null
+      isDone ? styles.isDone : null,
+      name === 'Delete' ? styles.deleteButton : null
     ]}
     >
-      {props.name}
+      {name}
     </Text>
   </TouchableHighlight>
 )

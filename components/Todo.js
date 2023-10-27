@@ -4,15 +4,15 @@ import { View, Text, StyleSheet } from 'react-native'
 import TodoButton from './TodoButton'
 
 const Todo = props => (
-  <View style={ styles.todoContainer }>
+  <View style={styles.todoContainer}>
     <Text style={styles.todoText}>
-      { props.todo.text }
+      {props.todo.text}
     </Text>
     <View style={styles.buttons}>
       <TodoButton
         name='Done'
         isDone={props.todo.isDone}
-        onPress={() => {}} ></TodoButton>
+        onPress={() => { props.completeTodo(props.todo.id) }} ></TodoButton>
       <TodoButton
         name='Delete'
         isDone={props.todo.isDone}
